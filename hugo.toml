@@ -1,0 +1,21 @@
+baseURL = "https://dautuchungkhoan.pages.dev/"
+languageCode = "vi-VN"
+title = "Đầu Tư Chứng Khoán Thực Chiến"
+theme = "blowfish"
+
+[params]
+  # Tối ưu SEO & Đánh trúng Insight
+  description = "Hướng dẫn thao tác mở tài khoản chứng khoán nhanh gọn, tối ưu chi phí giao dịch và chia sẻ bộ lọc cổ phiếu thực chiến cho F0."
+  author = "Nhà Đầu Tư Ẩn Danh"
+  
+  # Cấu hình trải nghiệm đọc không phân tâm
+  colorScheme = "blowfish"
+  defaultAppearance = "light"
+  showReadingTime = true
+  showBreadcrumbs = true
+  showRelated = true # Giữ chân khách đọc thêm bài khác
+  
+  [params.header]
+    layout = "basic"
+  [params.footer]
+    showCopyright = true

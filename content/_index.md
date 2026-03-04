@@ -1,6 +1,6 @@
 ---
 title: "Bắt Đầu Hành Trình Đầu Tư"
-type: "home"
+type: "hero"
 ---
 
 {{< lead >}}

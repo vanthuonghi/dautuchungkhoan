@@ -3,7 +3,6 @@ title: "Sai Lầm Bào Mòn Vốn Của F0 Và Cách Phòng Tránh"
 date: 2026-03-04
 draft: false
 tags: ["Kiến Thức F0", "Tâm Lý Đầu Tư"]
-summary: "Phá bỏ tư duy mua bán bốc đồng, hướng dẫn F0 cách giữ an toàn nguồn vốn ngay từ giao dịch đầu tiên."
 ---
 
 Thua lỗ nặng nhất của người mới không đến từ việc chọn sai cổ phiếu, mà do mua bán bốc đồng. Em Hỉ sẽ giúp bạn bảo vệ vốn và xây dựng kỷ luật giao dịch ngay từ ngày đầu tiên.

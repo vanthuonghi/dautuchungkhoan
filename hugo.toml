@@ -1,26 +1,15 @@
 baseURL = "https://dautuchungkhoan.pages.dev/"
 languageCode = "vi-VN"
 title = "Đầu Tư Chứng Khoán Thực Chiến"
-theme = "blowfish"
+theme = "PaperMod"
+
+[markup.goldmark.renderer]
+  unsafe = true # Mở khóa để chèn HTML trang trí trang chủ
 
 [params]
-  description = "Hướng dẫn thao tác mở tài khoản chứng khoán nhanh gọn, tối ưu chi phí giao dịch và chia sẻ bộ lọc cổ phiếu thực chiến cho F0."
-  colorScheme = "blowfish"
-  defaultAppearance = "light"
-  showReadingTime = true
-  showBreadcrumbs = true
-  showRelated = true 
-  mainSections = ["posts"] # Báo cho hệ thống biết thư mục chứa bài viết là "posts"
-
-[params.homepage]
-  layout = "page" # Phá bỏ chế độ Profile mặc định, cho phép hiển thị nội dung bạn đã thiết kế
-  showRecent = true # Tự động hiển thị các bài viết mới nhất ra trang chủ
-
-[params.author]
-  name = "Nhà Đầu Tư Ẩn Danh"
-
-[params.header]
-  layout = "basic"
-
-[params.footer]
-  showCopyright = true
+  description = "Tủ sách đầu tư và hướng dẫn thao tác mở tài khoản chứng khoán tối ưu phí giao dịch cho F0."
+  author = "Nhà Đầu Tư Ẩn Danh"
+  defaultTheme = "light"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true

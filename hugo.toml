@@ -10,7 +10,12 @@ theme = "blowfish"
   showReadingTime = true
   showBreadcrumbs = true
   showRelated = true 
-  
+  mainSections = ["posts"] # Báo cho hệ thống biết thư mục chứa bài viết là "posts"
+
+[params.homepage]
+  layout = "page" # Phá bỏ chế độ Profile mặc định, cho phép hiển thị nội dung bạn đã thiết kế
+  showRecent = true # Tự động hiển thị các bài viết mới nhất ra trang chủ
+
 [params.author]
   name = "Nhà Đầu Tư Ẩn Danh"
 

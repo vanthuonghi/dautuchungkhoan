@@ -1,0 +1,79 @@
+/* TÙY CHỈNH MÀU SẮC CHỦ ĐẠO (LIGHT MODE) */
+:root {
+    --primary: #0f172a; /* Xanh Navy đậm cho chữ chính */
+    --secondary: #475569; /* Xám xanh cho chữ phụ */
+    --theme: #ffffff; /* Nền trắng sạch sẽ */
+    --entry: #f8fafc; /* Nền bài viết hơi xám nhẹ cho nổi bật */
+    --brand-color: #059669; /* Xanh Lục (Màu xanh tăng điểm của chứng khoán) */
+    --brand-hover: #047857; /* Xanh lục đậm khi trỏ chuột */
+    --nav-border: #e2e8f0; 
+}
+
+/* TÙY CHỈNH MÀU SẮC (DARK MODE) */
+.dark {
+    --primary: #f8fafc; 
+    --secondary: #94a3b8;
+    --theme: #0f172a; /* Nền xanh Navy sâu, cực sang trọng cho ban đêm */
+    --entry: #1e293b;
+    --brand-color: #10b981;
+    --nav-border: #334155;
+}
+
+/* ----------------------------------- */
+/* TÂN TRANG THANH MENU & HEADER       */
+/* ----------------------------------- */
+
+/* Thêm đường viền dưới header cho rõ ràng */
+.header {
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Cách điệu các nút menu thông thường */
+.menu li a {
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hiệu ứng khi trỏ chuột vào menu */
+.menu li a:hover {
+    color: var(--brand-color);
+    background-color: rgba(5, 150, 105, 0.1); /* Nền xanh lục nhạt */
+}
+
+/* ----------------------------------- */
+/* BIẾN NÚT "MỞ TÀI KHOẢN VPS" THÀNH CTA TÂM ĐIỂM */
+/* ----------------------------------- */
+.menu li a[href*="huong-dan-vps"] {
+    background-color: var(--brand-color);
+    color: #ffffff !important;
+    border-radius: 8px;
+    padding: 8px 18px;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); /* Đổ bóng tạo chiều sâu */
+    transform: scale(1);
+}
+
+/* Hiệu ứng nảy nhẹ khi trỏ chuột vào nút VPS */
+.menu li a[href*="huong-dan-vps"]:hover {
+    background-color: var(--brand-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(5, 150, 105, 0.4);
+}
+
+/* ----------------------------------- */
+/* LÀM ĐẸP TIÊU ĐỀ TRANG CHỦ           */
+/* ----------------------------------- */
+.profile_inner h1, .home-info h1 {
+    font-weight: 800;
+    color: var(--primary);
+}
+
+/* Làm nổi bật đoạn mô tả ngắn */
+.home-info .entry-content {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--secondary);
+}

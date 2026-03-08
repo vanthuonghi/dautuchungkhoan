@@ -42,9 +42,9 @@ buildExpired = false
     Title = "Bắt đầu hành trình đầu tư"
     Content = "Nắm bắt kiến thức cốt lõi, quản trị rủi ro và xây dựng danh mục sinh lời bền vững. Tham gia cộng đồng để nhận tín hiệu và tài liệu thực chiến."
 
-  [params.socialIcons]
-    # Nơi đặt link dẫn về phễu (Group Zalo, Telegram...)
-    [[params.socialIcons.name]]
+[params.socialIcons]
+    # Sửa [[params.socialIcons.name]] thành [[params.socialIcons]]
+    [[params.socialIcons]]
       name = "Zalo"
       url = "https://zalo.me/g/link-group-pheu-cua-em"
 
@@ -71,3 +71,5 @@ buildExpired = false
   name = "Chủ Đề"
   url = "/tags/"
   weight = 30
+[markup.goldmark.renderer]
+  unsafe = true

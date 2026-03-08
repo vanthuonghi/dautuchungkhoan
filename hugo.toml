@@ -1,75 +1,88 @@
-baseURL = "https://dautuchungkhoan.pages.dev/"
-languageCode = 'vi-vn'
-title = 'Đầu Tư Chứng Khoán Cho Người Mới' # Tiêu đề chính hiển thị trên tab trình duyệt
-theme = 'PaperMod'
+baseURL = "https://dautuchungkhoan.pages.dev" # Thay bằng domain thực tế
+languageCode = "vi-VN"
+title = "Đầu Tư Chứng Khoán Thực Chiến | Văn Hỉ"
+theme = "PaperMod"
 
-# Bật tạo file robots.txt tự động - Cực kỳ quan trọng để Google index
-enableRobotsTXT = true 
+# Tối ưu SEO & Tốc độ
+enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-[minify]
-  disableXML = false
-  minifyOutput = true # Nén toàn bộ code HTML/CSS/JS giúp tải trang tức thì
+# BẬT TÍNH NĂNG TÌM KIẾM CỦA PAPERMOD (Tạo file dữ liệu JSON)
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+
+# Cho phép nhúng mã HTML (Cần thiết để chèn Iframe biểu đồ TradingView hoặc Video YouTube)
+[markup.goldmark.renderer]
+    unsafe = true
 
 [params]
-  env = "production"
-  title = "Đầu Tư Chứng Khoán Cho Người Mới"
-  description = "Chia sẻ kiến thức đầu tư, phân tích thị trường và hướng dẫn thực chiến."
-  keywords = ["đầu tư chứng khoán", "cổ phiếu", "hướng dẫn vps", "chứng khoán cho người mới", "phân tích kỹ thuật"]
-  author = "Chuyên gia ẩn danh" # Phù hợp chiến lược làm web không lộ mặt
-  
-  defaultTheme = "auto"
-  ShowReadingTime = true # Hiển thị thời gian đọc, giữ chân người dùng lâu hơn
-  ShowShareButtons = true
-  ShowPostNavLinks = true
-  
-  # Yếu tố On-page SEO cốt lõi
-  ShowBreadCrumbs = true # Tạo thẻ điều hướng (Breadcrumbs) giúp Google hiểu cấu trúc web
-  ShowToc = true # Hiển thị mục lục (Table of Contents), tạo sitelink trực tiếp trên kết quả tìm kiếm Google
-  ShowCodeCopyButtons = true
-  
-  disableSpecial1stPost = false
-  disableScrollToTop = false
-  hideFooter = false
-  hideHilighlight = false
+    # Giao diện PaperMod
+    defaultTheme = "auto"
+    ShowReadingTime = true
+    ShowShareButtons = true
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    ShowCodeCopyButtons = true
+    description = "Chia sẻ kiến thức đầu tư chứng khoán, phân tích thị trường và hướng dẫn thực chiến cùng Văn Hỉ"
+    author = "Văn Hỉ"
 
-  [params.profileMode]
-    enabled = false # Tắt để sử dụng giao diện Blog chuẩn, tập trung vào danh sách bài viết
+    # Màu chủ đạo & Favicon (Đổi link sang logo của trang chứng khoán)
+    [params.assets]
+        disableHLJS = true
+        favicon = "https://img.domain-cua-em.com/logo-ck.png"
+        favicon16x16 = "https://img.domain-cua-em.com/logo-ck.png"
+        favicon32x32 = "https://img.domain-cua-em.com/logo-ck.png"
+        apple_touch_icon = "https://img.domain-cua-em.com/logo-ck.png"
+        safari_pinned_tab = "https://img.domain-cua-em.com/logo-ck.png"
 
-  [params.homeInfoParams]
-    Title = "Bắt đầu hành trình đầu tư"
-    Content = "Nắm bắt kiến thức cốt lõi, quản trị rủi ro và xây dựng danh mục sinh lời bền vững. Tham gia cộng đồng để nhận tín hiệu và tài liệu thực chiến."
+    # SEO Trang chủ
+    [params.homeInfoParams]
+        Title = "Đầu Tư Sinh Lời - Quản Trị Rủi Ro"
+        Content = "Chào mừng bạn đến với Blog của Văn Hỉ. Nơi cung cấp kiến thức đầu tư thực chiến, phân tích vĩ mô và hỗ trợ mở tài khoản chứng khoán với nhiều đặc quyền."
 
-[params.socialIcons]
-    # Sửa [[params.socialIcons.name]] thành [[params.socialIcons]]
+    # Mạng xã hội & Phễu thu thập Lead
     [[params.socialIcons]]
-      name = "Zalo"
-      url = "https://zalo.me/g/link-group-pheu-cua-em"
+        name = "youtube"
+        url = "https://youtube.com/@VanHiOfficial"
+    [[params.socialIcons]]
+        name = "zalo"
+        url = "https://zalo.me/g/link-group-pheu-vps" # Link group Zalo hỗ trợ chứng khoán
 
+# MENU ĐIỀU HƯỚNG (Tập trung vào điều hướng mở tài khoản)
+[[menu.main]]
+    identifier = "home"
+    name = "TRANG CHỦ"
+    url = "/"
+    weight = 5
+[[menu.main]]
+    identifier = "kien-thuc"
+    name = "KIẾN THỨC ĐẦU TƯ"
+    url = "/posts/"
+    weight = 10
+[[menu.main]]
+    identifier = "huong-dan-vps"
+    name = "MỞ TÀI KHOẢN VPS"
+    url = "/huong-dan-vps/"
+    weight = 15
+[[menu.main]]
+    identifier = "categories"
+    name = "DANH MỤC"
+    url = "/categories/"
+    weight = 20
+[[menu.main]]
+    identifier = "tags"
+    name = "TỪ KHÓA"
+    url = "/tags/"
+    weight = 25
+[[menu.main]]
+    identifier = "search"
+    name = "🔍 TÌM KIẾM"
+    url = "/search/"
+    weight = 30
+
+# KHAI BÁO BỘ LỌC PHÂN LOẠI (Taxonomies)
 [taxonomies]
-  category = "categories"
-  tag = "tags"
-  series = "series"
-
-# Điều hướng Menu rõ ràng giúp tăng trải nghiệm người dùng (UX) và SEO
-[[menu.main]]
-  identifier = "kien-thuc"
-  name = "Kiến Thức Cốt Lõi"
-  url = "/categories/kien-thuc/"
-  weight = 10
-
-[[menu.main]]
-  identifier = "huong-dan-vps"
-  name = "Mở Tài Khoản & Khuyến Nghị"
-  url = "/huong-dan-vps/"
-  weight = 20
-
-[[menu.main]]
-  identifier = "tags"
-  name = "Chủ Đề"
-  url = "/tags/"
-  weight = 30
-[markup.goldmark.renderer]
-  unsafe = true
+    category = "categories"
+    tag = "tags"

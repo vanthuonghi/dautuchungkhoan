@@ -3,288 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title }}</title>
-    <meta name="description" content="Chia sẻ kiến thức đầu tư chứng khoán, phân tích thị trường, quản trị rủi ro và hướng dẫn thực chiến từ Nghiện Cổ Phiếu.">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Tuyển dụng - Mở Tài Khoản Chứng Khoán VPS</title>
+    <meta name="description" content="Tuyển dụng Cộng tác viên / Chuyên viên Tư vấn Đầu tư chứng khoán VPS. Nhận hoa hồng lên tới 65%, thu nhập không giới hạn.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script type="importmap">
-    {
-        "imports": {
-            "react": "https://esm.sh/react@18.2.0",
-            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-            "lucide-react": "https://esm.sh/lucide-react@0.263.1"
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Roboto Flex"', 'sans-serif'],
+                    },
+                    colors: {
+                        vps: {
+                            DEFAULT: '#8b27eb',
+                            dark: '#681baf',
+                            light: '#a654f0',
+                            50: '#f5edfd',
+                        }
+                    }
+                }
+            }
         }
-    }
     </script>
-
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        /* Đổi màu Brand thành Xanh Lục (Thị trường tăng điểm) */
-        .bg-brand { background-color: #059669; }
-        .text-brand { color: #059669; }
-        .border-brand { border-color: #059669; }
-        .hover-bg-brand:hover { background-color: #047857; }
-        
-        /* Màu nền tối (Xanh Navy) cho nét tài chính */
-        .bg-navy { background-color: #0f172a; }
-
-        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.15); }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        html { scroll-behavior: smooth; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://motaikhoanchungkhoanvps.id.vn/wp-content/uploads/2025/02/baner_web_top_PNG.png');
+            background-size: cover;
+            background-position: center;
         }
-        .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
-
-        .grayscale-logo { filter: grayscale(100%); opacity: 0.5; transition: all 0.3s ease; }
-        .grayscale-logo:hover { filter: grayscale(0%); opacity: 1; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 39, 235, 0.1);
+        }
     </style>
 </head>
-<body>
-    <div id="root"></div>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-vps selection:text-white">
 
-{{ `<script type="text/babel" data-type="module">
-        import React, { useState, useEffect } from 'react';
-        import { createRoot } from 'react-dom/client';
-        import { TrendingUp, BarChart2, ShieldCheck, Smartphone, Target, LineChart, Briefcase, BookOpen, ChevronRight, Menu, X, ArrowRight, Activity, MessageCircle } from 'lucide-react';
-
-        // --- Components ---
-        const NavItem = ({ label, href, mobile, onClick }) => {
-            const base = " font-semibold text-gray-700 hover:text-brand transition-colors";
-            const classes = mobile ? "block py-3 px-4 border-b border-gray-100" + base : "px-4 py-2" + base;
-            return <a href={href} onClick={onClick} className={classes}>{label}</a>;
-        };
-
-        const Card = ({ title, desc, icon: Icon, link, tag, tagColor, buttonText = "Xem chi tiết" }) => {
-            const iconClasses = "p-4 rounded-xl text-white " + tagColor;
-            return (
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover-lift flex flex-col h-full animate-fade-in">
-                    <div className="flex justify-between items-start mb-6">
-                        <div className={iconClasses}><Icon size={28} /></div>
-                        {tag && <span className="text-[10px] font-bold uppercase tracking-wider bg-gray-100 text-gray-500 px-2 py-1 rounded">{tag}</span>}
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-                    <p className="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">{desc}</p>
-                    <a href={link} className="flex items-center justify-between w-full py-3 px-6 bg-slate-50 text-slate-800 font-bold rounded-xl group hover:bg-brand hover:text-white transition-all">
-                        {buttonText}
-                        <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img class="h-12 w-auto" src="https://motaikhoanchungkhoanvps.id.vn/wp-content/uploads/2025/02/vps_wlogo.af6db381-1.png" alt="VPS Logo" onerror="this.src='https://via.placeholder.com/210x80?text=VPS+Logo'">
                     </a>
                 </div>
-            );
-        };
-
-        // --- Main App ---
-        function App() {
-            const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-            const menuLinks = [
-                { label: "Kiến Thức", href: "/posts/" },
-                { label: "Phân Tích Vĩ Mô", href: "/categories/vi-mo/" },
-                { label: "Công Cụ Đầu Tư", href: "/categories/cong-cu/" }
-            ];
-
-            return (
-                <div className="min-h-screen flex flex-col overflow-x-hidden">
-                    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-[100] border-b border-gray-100 shadow-sm">
-                        <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-                            <a href="/" className="flex items-center gap-3">
-                                <div className="bg-navy p-2 rounded-lg text-white">
-                                    <TrendingUp size={24} className="text-emerald-400" />
-                                </div>
-                                <div className="hidden md:block">
-                                    <h1 className="text-xl font-extrabold text-slate-900 leading-none tracking-tight">NGHIỆN CỔ PHIẾU</h1>
-                                    <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-[0.1em]">Đầu tư thực chiến</p>
-                                </div>
-                            </a>
-
-                            <nav className="hidden md:flex items-center gap-2">
-                                {menuLinks.map((link, i) => <NavItem key={i} {...link} />)}
-                                <a href="/huong-dan-vps/" className="ml-4 bg-brand hover-bg-brand text-white px-6 py-2.5 rounded-lg font-bold shadow-md hover:shadow-lg transition-all active:scale-95">Mở Tài Khoản VPS</a>
-                            </nav>
-
-                            <button className="md:hidden text-slate-800" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                            </button>
-                        </div>
-
-                        {isMenuOpen && (
-                            <div className="md:hidden bg-white animate-fade-in border-b border-gray-100 shadow-xl">
-                                {menuLinks.map((link, i) => <NavItem key={i} {...link} mobile onClick={() => setIsMenuOpen(false)} />)}
-                                <div className="p-4">
-                                    <a href="/huong-dan-vps/" className="block w-full text-center bg-brand text-white py-3 rounded-lg font-bold">Mở Tài Khoản VPS</a>
-                                </div>
-                            </div>
-                        )}
-                    </header>
-
-                    <main className="flex-grow pt-20">
-                        {/* HERO SECTION */}
-                        <section className="relative py-16 md:py-24 overflow-hidden bg-slate-50">
-                            <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-100 -skew-x-12 transform translate-x-20 z-0"></div>
-                            
-                            <div className="max-w-7xl mx-auto px-4 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-                                <div className="lg:col-span-6 animate-fade-in">
-                                    <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-emerald-100">
-                                        <Activity size={14} /> Tư Duy Dòng Tiền & Quản Trị Rủi Ro
-                                    </div>
-                                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-6">
-                                        Đầu Tư Sinh Lời <br/>
-                                        <span className="text-brand">Bền Vững</span> Mỗi Ngày
-                                    </h2>
-                                    <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
-                                        Không vẽ hứa hẹn viển vông. Tại đây, chúng ta nói về hệ thống giao dịch thực chiến, cắt lỗ kỷ luật và tìm kiếm lợi nhuận an toàn trên thị trường chứng khoán.
-                                    </p>
-                                    <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                                        <a href="/huong-dan-vps/" className="bg-brand text-white px-8 py-4 rounded-xl font-bold text-lg text-center shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-1 transition-all">
-                                            Mở Tài Khoản VPS ngay
-                                        </a>
-                                        <a href="https://zalo.me/g/link-group-pheu" target="_blank" className="flex items-center justify-center gap-2 text-slate-700 font-bold px-8 py-4 border-2 border-slate-200 rounded-xl hover:bg-slate-100 transition-all">
-                                            <MessageCircle size={20} className="text-blue-500" /> Vào Nhóm Khuyến Nghị
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div className="lg:col-span-6 relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                                    <div className="absolute -inset-4 bg-navy/5 rounded-[40px] transform rotate-3"></div>
-                                    <div className="relative bg-white p-2 rounded-[24px] shadow-2xl border border-slate-100">
-                                        {/* Hình ảnh chứng khoán/Trading */}
-                                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Đầu tư chứng khoán" className="rounded-[16px] w-full h-[400px] object-cover" />
-                                        
-                                        <div className="absolute bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-4">
-                                            <div className="bg-emerald-100 p-3 rounded-lg text-emerald-600">
-                                                <Target size={24} />
-                                            </div>
-                                            <div>
-                                                <p className="text-xs text-slate-500 font-bold uppercase">Nguyên tắc #1</p>
-                                                <p className="text-lg font-extrabold text-slate-900">Bảo Toàn Vốn</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* GIẢI PHÁP / LỘ TRÌNH SECTION */}
-                        <section className="py-20 bg-white border-t border-slate-100">
-                            <div className="max-w-7xl mx-auto px-4">
-                                <div className="text-center mb-16">
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Hành Trang Đầu Tư</h2>
-                                    <p className="text-slate-500 max-w-2xl mx-auto">Tất cả những gì bạn cần để tự tin bước vào thị trường chứng khoán, từ kiến thức nền tảng đến công cụ thực chiến.</p>
-                                </div>
-
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    <Card title="Kiến Thức Nền Tảng" desc="Hiểu rõ bản chất thị trường, cách đọc bảng điện, các chỉ số tài chính cơ bản và tư duy đầu tư đúng đắn." icon={BookOpen} link="/categories/kien-thuc/" tag="Cho người mới" tagColor="bg-blue-500" buttonText="Đọc bài viết" />
-                                    
-                                    <Card title="Phân Tích Kỹ Thuật" desc="Làm chủ biểu đồ giá, nhận diện dòng tiền lớn, xác định điểm mua/bán an toàn bằng các chỉ báo thực chiến." icon={LineChart} link="/categories/phan-tich-ky-thuat/" tag="Nâng cao" tagColor="bg-slate-800" buttonText="Học phân tích" />
-                                    
-                                    <Card title="Mở Tài Khoản VPS" desc="Nhận ưu đãi phí giao dịch, sử dụng app SmartOne mượt mà và được hỗ trợ tư vấn 1-1 cơ cấu danh mục." icon={Smartphone} link="/huong-dan-vps/" tag="Đề xuất" tagColor="bg-emerald-600" buttonText="Mở tài khoản" />
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* TẠI SAO CHỌN CHÚNG TÔI */}
-                        <section className="py-20 bg-slate-50">
-                            <div className="max-w-7xl mx-auto px-4">
-                                <div className="grid md:grid-cols-2 gap-16 items-center">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div className="space-y-4 pt-12">
-                                            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-                                                <ShieldCheck className="text-emerald-600 mb-4" size={32} />
-                                                <h4 className="font-bold text-slate-900">Quản trị rủi ro</h4>
-                                            </div>
-                                            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-                                                <BarChart2 className="text-blue-600 mb-4" size={32} />
-                                                <h4 className="font-bold text-slate-900">Không phím hàng bừa</h4>
-                                            </div>
-                                        </div>
-                                        <div className="space-y-4">
-                                            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-                                                <Target className="text-orange-500 mb-4" size={32} />
-                                                <h4 className="font-bold text-slate-900">Điểm mua an toàn</h4>
-                                            </div>
-                                            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-                                                <Briefcase className="text-slate-800 mb-4" size={32} />
-                                                <h4 className="font-bold text-slate-900">Cơ cấu danh mục</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h2 className="text-3xl font-extrabold text-slate-900 mb-6">Triết lý đầu tư của Nghiện Cổ Phiếu</h2>
-                                        <p className="text-slate-600 mb-8 leading-relaxed">
-                                            Thị trường tài chính khốc liệt không dành cho những người thiếu kỷ luật. Phương pháp của chúng tôi tập trung vào việc bảo vệ tiền trước khi nghĩ đến kiếm tiền.
-                                        </p>
-                                        <ul className="space-y-4 mb-8">
-                                            <li className="flex items-center gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0"><ChevronRight size={14} strokeWidth={3} /></div>
-                                                <span className="font-medium text-slate-700">Chỉ tham gia khi thị trường có xu hướng rõ ràng.</span>
-                                            </li>
-                                            <li className="flex items-center gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0"><ChevronRight size={14} strokeWidth={3} /></div>
-                                                <span className="font-medium text-slate-700">Kỷ luật cắt lỗ tuyệt đối, không gồng lỗ chờ hòa vốn.</span>
-                                            </li>
-                                            <li className="flex items-center gap-3">
-                                                <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0"><ChevronRight size={14} strokeWidth={3} /></div>
-                                                <span className="font-medium text-slate-700">Tự chủ quyết định, nói không với FOMO theo đám đông.</span>
-                                            </li>
-                                        </ul>
-                                        <a href="https://zalo.me/g/link-group-pheu" target="_blank" className="inline-block px-8 py-3 bg-navy text-white font-bold rounded-lg hover:bg-slate-800 shadow-lg transition-all">Tham gia cộng đồng Zalo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </main>
-
-                    {/* FOOTER ẨN DANH */}
-                    <footer className="bg-navy text-slate-300 pt-16 pb-8 border-t border-emerald-900/50">
-                        <div className="max-w-7xl mx-auto px-4">
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
-                                <div className="col-span-1 lg:col-span-1">
-                                    <div className="flex items-center gap-2 mb-6">
-                                        <TrendingUp size={28} className="text-emerald-500" />
-                                        <span className="text-xl font-extrabold text-white tracking-tight">NGHIỆN CỔ PHIẾU</span>
-                                    </div>
-                                    <p className="text-sm leading-relaxed mb-6 text-slate-400">
-                                        Chia sẻ góc nhìn khách quan về thị trường chứng khoán. Mọi phân tích chỉ mang tính chất tham khảo, nhà đầu tư tự chịu trách nhiệm với quyết định của mình.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h4 className="text-lg font-bold mb-6 text-white">Chuyên Mục</h4>
-                                    <ul className="space-y-4 text-sm font-medium">
-                                        <li><a href="/categories/kien-thuc/" className="hover:text-emerald-400 transition-colors">Kiến thức nền tảng</a></li>
-                                        <li><a href="/categories/phan-tich-ky-thuat/" className="hover:text-emerald-400 transition-colors">Phân tích kỹ thuật</a></li>
-                                        <li><a href="/huong-dan-vps/" className="hover:text-emerald-400 transition-colors">Hướng dẫn dùng App VPS</a></li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <h4 className="text-lg font-bold mb-6 text-white">Kết Nối</h4>
-                                    <ul className="space-y-4 text-sm font-medium">
-                                        <li>
-                                            <a href="https://zalo.me/g/link-group-pheu" target="_blank" className="flex items-center gap-2 hover:text-emerald-400 transition-colors">
-                                                <MessageCircle size={18} /> Group Zalo Nhận Định
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div className="border-t border-slate-800 pt-8 text-center text-xs font-medium text-slate-500">
-                                <p>© 2026 Nghiện Cổ Phiếu. Vận hành độc lập.</p>
-                            </div>
-                        </div>
-                    </footer>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-gray-600 hover:text-vps font-medium transition-colors">Giới thiệu</a>
+                    <a href="#" class="text-gray-600 hover:text-vps font-medium transition-colors">HDSD VPS</a>
+                    <a href="#" class="text-vps font-bold border-b-2 border-vps pb-1">Tuyển dụng</a>
+                    <a href="https://openaccount.vps.com.vn/?MKTID=Z062" target="_blank" class="bg-vps hover:bg-vps-dark text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        Mở Tài Khoản
+                    </a>
                 </div>
-            );
-        }
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-vps focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-vps hover:bg-gray-50">Giới thiệu</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-vps hover:bg-gray-50">HDSD VPS</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-vps bg-vps-50 rounded-md">Tuyển dụng</a>
+                <a href="https://openaccount.vps.com.vn/?MKTID=Z062" target="_blank" class="block px-3 py-2 text-base font-bold text-white bg-vps rounded-md text-center mt-4">Mở Tài Khoản</a>
+            </div>
+        </div>
+    </nav>
 
-        const root = createRoot(document.getElementById('root'));
-        root.render(<App />);
-</script>` | safeHTML }}
+    <!-- Hero Section -->
+    <section class="hero-bg relative text-white py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-vps/80 backdrop-blur-sm text-sm font-semibold tracking-wider mb-4 uppercase">Cơ hội nghề nghiệp 2026</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                Gia Nhập <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">Chứng Khoán VPS</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-10 max-w-3xl mx-auto opacity-90">
+                Trở thành Cộng tác viên / Chuyên viên Tư vấn Đầu tư tại Công ty Chứng khoán có thị phần Số 1 Việt Nam.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#ung-tuyen" class="bg-vps hover:bg-vps-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(139,39,235,0.4)] hover:shadow-[0_0_30px_rgba(139,39,235,0.6)] transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="ph-fill ph-rocket-launch"></i> Ứng Tuyển Ngay
+                </a>
+                <a href="#thong-tin" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2">
+                    Xem Chi Tiết <i class="ph ph-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lợi ích nổi bật (Hook Insight) -->
+    <section id="thong-tin" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tại sao nên chọn VPS?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Vượt trội và khác biệt - VPS mang đến cho bạn cơ hội bứt phá thu nhập với chính sách tốt nhất thị trường.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Lợi ích 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-vps/30 transition-all group">
+                    <div class="w-14 h-14 bg-vps-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-vps">
+                        <i class="ph-fill ph-chart-line-up text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Thị Phần Số 1</h3>
+                    <p class="text-gray-600">Công ty chứng khoán hàng đầu Việt Nam với 17.38% thị phần, thương hiệu uy tín dễ dàng tiếp cận khách hàng.</p>
+                </div>
+
+                <!-- Lợi ích 2 -->
+                <div class="bg-gradient-to-br from-vps to-vps-dark p-8 rounded-2xl shadow-lg transform md:-translate-y-4">
+                    <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6 text-white">
+                        <i class="ph-fill ph-money text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Hoa Hồng 65%</h3>
+                    <p class="text-white/90">Hoa hồng cao nhất thị trường lên tới 65% trên doanh số phí giao dịch (so với mặt bằng chung chỉ 20-35%).</p>
+                </div>
+
+                <!-- Lợi ích 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-vps/30 transition-all group">
+                    <div class="w-14 h-14 bg-vps-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-vps">
+                        <i class="ph-fill ph-trend-up text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Thăng Tiến Rõ Ràng</h3>
+                    <p class="text-gray-600">Lộ trình phát triển minh bạch: Chuyên viên Tư vấn -> Trưởng phòng -> Giám đốc Kinh doanh.</p>
+                </div>
+
+                <!-- Lợi ích 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-vps/30 transition-all group">
+                    <div class="w-14 h-14 bg-vps-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-vps">
+                        <i class="ph-fill ph-clock-user text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Thời Gian Linh Hoạt</h3>
+                    <p class="text-gray-600">Chủ động sắp xếp công việc Online (với CTV). Hoàn toàn có thể làm song song với công việc chính của bạn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vị trí tuyển dụng -->
+    <section class="py-16 bg-vps-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Vị Trí Đang Tuyển Dụng</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Card CTV -->
+                <div class="bg-white rounded-3xl p-8 shadow-md border-t-4 border-gray-300 hover:border-vps transition-colors">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900">Cộng Tác Viên (CTV)</h3>
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Online</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Địa điểm:</strong> Làm việc Online (Toàn quốc).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Thời gian:</strong> Linh hoạt, chủ động.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Phù hợp:</strong> Sinh viên, người đi làm muốn có thêm nguồn thu nhập thứ 2.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Thu nhập:</strong> Hoa hồng hấp dẫn dựa trên doanh số.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card CVTV -->
+                <div class="bg-white rounded-3xl p-8 shadow-md border-t-4 border-vps relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-vps text-white text-xs font-bold px-4 py-1 rounded-bl-lg uppercase tracking-wider">HOT</div>
+                    <div class="flex items-center justify-between mb-6 mt-2">
+                        <h3 class="text-2xl font-bold text-gray-900">Chuyên Viên Tư Vấn</h3>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Tại Văn Phòng</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Địa điểm:</strong> Hà Nội (65 Cảm Hội, Q. Hai Bà Trưng) hoặc TP.HCM (144 Lê Lai, Q1).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Lương cứng:</strong> Cơ bản từ <strong class="text-vps text-lg">8 - 15 triệu/tháng</strong>.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Hoa hồng:</strong> Lên tới 65% trên doanh số phí giao dịch.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-check-circle text-vps mt-1 mr-3 text-xl"></i>
+                            <span class="text-gray-700"><strong>Quyền lợi:</strong> Được miễn phí giao dịch (Cơ sở + Phái sinh) khi thành nhân viên.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chi tiết công việc & Yêu cầu -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Mô tả công việc -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-vps/10 p-3 rounded-xl text-vps">
+                            <i class="ph-fill ph-briefcase text-2xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900">Mô Tả Công Việc</h2>
+                    </div>
+                    <div class="prose text-gray-600">
+                        <p class="mb-4"><em>(Sẽ được bộ phận tuyển dụng hướng dẫn, đào tạo chi tiết 1:1)</em></p>
+                        <ul class="space-y-3 list-none p-0">
+                            <li class="flex gap-3 bg-gray-50 p-4 rounded-lg">
+                                <span class="bg-white text-vps font-bold w-8 h-8 rounded-full flex items-center justify-center shadow-sm shrink-0">1</span>
+                                <span>Tìm kiếm, khai thác và mở rộng mạng lưới khách hàng đầu tư chứng khoán.</span>
+                            </li>
+                            <li class="flex gap-3 bg-gray-50 p-4 rounded-lg">
+                                <span class="bg-white text-vps font-bold w-8 h-8 rounded-full flex items-center justify-center shadow-sm shrink-0">2</span>
+                                <span>Tư vấn khách hàng về các sản phẩm tài chính của Công ty.</span>
+                            </li>
+                            <li class="flex gap-3 bg-gray-50 p-4 rounded-lg">
+                                <span class="bg-white text-vps font-bold w-8 h-8 rounded-full flex items-center justify-center shadow-sm shrink-0">3</span>
+                                <span>Hỗ trợ, chăm sóc khách hàng trong quá trình giao dịch cổ phiếu.</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 p-4 bg-purple-50 border border-purple-100 rounded-xl text-sm text-vps-dark">
+                            <strong><i class="ph-fill ph-shield-check mr-1"></i> Lưu ý:</strong> Đây là công việc hoàn toàn hợp pháp, được pháp luật bảo hộ tại Công ty Chứng khoán có thị phần số 1 Việt Nam – VPS.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yêu cầu ứng viên -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-vps/10 p-3 rounded-xl text-vps">
+                            <i class="ph-fill ph-user-focus text-2xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900">Yêu Cầu Ứng Viên</h2>
+                    </div>
+                    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 lg:p-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="ph-bold ph-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Nam/Nữ từ <strong>18 tuổi trở lên</strong>.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ph-bold ph-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Yêu thích và có đam mê làm giàu từ lĩnh vực tài chính, chứng khoán.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ph-bold ph-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Có Laptop/Máy tính cá nhân.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ph-bold ph-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Chăm chỉ, chủ động, chịu khó học hỏi.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ph-fill ph-star text-yellow-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700"><strong>Ưu tiên:</strong> Các bạn sinh viên hoặc người đã từng làm trong ngành ngân hàng, bảo hiểm, bất động sản, sales...</span>
+                            </li>
+                        </ul>
+                        <hr class="my-6 border-gray-100">
+                        <p class="text-vps font-medium text-center bg-vps/5 py-3 rounded-lg">
+                            Chưa có kinh nghiệm sẽ được đào tạo bài bản từ A-Z!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Liên hệ -->
+    <section id="ung-tuyen" class="py-20 bg-gray-900 relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-vps/20 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-blue-500/20 blur-3xl"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Sẵn Sàng Bứt Phá Thu Nhập?</h2>
+            <p class="text-xl text-gray-300 mb-10">
+                Đầu tư là xu hướng tất yếu. Bắt đầu sớm, cơ hội thành công của bạn càng lớn. Hãy gia nhập VPS ngay hôm nay!
+            </p>
+
+            <div class="glass-card rounded-3xl p-8 md:p-10 mb-10 max-w-2xl mx-auto text-left">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Cách Thức Ứng Tuyển</h3>
+                
+                <div class="space-y-6">
+                    <!-- Contact Option 1 -->
+                    <div class="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white shrink-0 shadow-md">
+                            <i class="ph-fill ph-chat-circle-dots text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-medium">Liên hệ trực tiếp (Zalo/Call)</p>
+                            <a href="https://zalo.me/0977722111" target="_blank" class="text-xl font-bold text-gray-900 hover:text-vps transition-colors">
+                                097 7722 111 <span class="text-base font-normal text-gray-600">(Mr. Thịnh - GĐ VPS)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center">
+                        <span class="w-12 h-px bg-gray-300"></span>
+                        <span class="px-3 text-gray-400 font-medium text-sm uppercase">Hoặc</span>
+                        <span class="w-12 h-px bg-gray-300"></span>
+                    </div>
+
+                    <!-- Contact Option 2 -->
+                    <div class="text-center">
+                        <p class="text-gray-600 mb-4">Điền form đăng ký trực tuyến (Chúng tôi sẽ liên hệ lại)</p>
+                        <a href="https://forms.gle/f3Znkf6b8REc5Nty8" target="_blank" class="inline-block w-full sm:w-auto bg-vps hover:bg-vps-dark text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            <i class="ph-fill ph-pencil-simple-line mr-2"></i> Đăng Ký Ứng Tuyển
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-gray-400 text-sm">
+                <p>Bạn chưa có tài khoản chứng khoán VPS?</p>
+                <a href="https://openaccount.vps.com.vn/?MKTID=Z062" target="_blank" class="text-vps-light hover:text-white font-bold inline-flex items-center mt-2 transition-colors">
+                    Mở tài khoản miễn phí ngay <i class="ph-bold ph-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Col 1 -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Trụ sở Công ty VPS</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start"><i class="ph-fill ph-map-pin text-vps mt-1 mr-2 shrink-0"></i> <strong>Hội sở:</strong> 65 Cảm Hội, Q. Hai Bà Trưng, TP. Hà Nội</li>
+                        <li class="flex items-start"><i class="ph-fill ph-map-pin text-vps mt-1 mr-2 shrink-0"></i> <strong>PGD Đông Đô:</strong> 35 Thi Sách, Q. Hai Bà Trưng, TP. Hà Nội</li>
+                        <li class="flex items-start"><i class="ph-fill ph-map-pin text-vps mt-1 mr-2 shrink-0"></i> <strong>PGD Thăng Long:</strong> 8 Phạm Ngọc Thạch, Q. Đống Đa, TP. Hà Nội</li>
+                        <li class="flex items-start"><i class="ph-fill ph-map-pin text-vps mt-1 mr-2 shrink-0"></i> <strong>CN Đà Nẵng:</strong> 112 Phan Châu Trinh, Q. Hải Châu, TP. Đà Nẵng</li>
+                        <li class="flex items-start"><i class="ph-fill ph-map-pin text-vps mt-1 mr-2 shrink-0"></i> <strong>CN TP.HCM:</strong> Lầu 3, 144 Lê Lai, Quận 1, TP. Hồ Chí Minh</li>
+                    </ul>
+                </div>
+                
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Về chúng tôi</h4>
+                    <p class="text-sm leading-relaxed mb-4">
+                        Trang web chia sẻ thông tin, kiến thức thị trường chứng khoán, hướng dẫn khách hàng mở tài khoản Chứng khoán VPS trực tuyến. Hỗ trợ 24/7 chi tiết, đúng thủ tục pháp lý.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-vps hover:text-white transition-colors">
+                            <i class="ph-fill ph-facebook-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-vps hover:text-white transition-colors">
+                            <i class="ph-fill ph-envelope-simple text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Liên kết nhanh</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-vps transition-colors">Giới thiệu</a></li>
+                        <li><a href="#" class="hover:text-vps transition-colors">Mở tài khoản VPS</a></li>
+                        <li><a href="#" class="hover:text-vps transition-colors">Điều khoản dịch vụ</a></li>
+                        <li><a href="#" class="hover:text-vps transition-colors">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="hover:text-vps transition-colors">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 <a href="https://motaikhoanchungkhoanvps.id.vn/" class="text-white hover:text-vps transition-colors font-medium">Mở Tài Khoản Chứng Khoán VPS</a>. All rights reserved.</p>
+                <p class="mt-2 md:mt-0 font-medium text-vps-light">VPS - Vượt Trội Và Khác Biệt</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

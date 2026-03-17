@@ -76,12 +76,12 @@ Sắp tới (kỳ ĐHĐCĐ 2026), dòng tiền sẽ có xu hướng phản ứng
 * **Nếu bạn CHƯA CÓ HÀNG:** Không mua đuổi (FOMO) khi tin tốt ra liên tục. Hãy kiên nhẫn chờ đợi các nhịp điều chỉnh chung của thị trường để mua gom dần (DCA) tại các vùng hỗ trợ cứng (quanh đường MA50, MA200). 
 
 ---
-> ⚠️ **Miễn trừ trách nhiệm:** Phân tích trên là góc nhìn độc lập của *Nghiện Cổ Phiếu*, dựa trên báo cáo và dữ liệu quá khứ. Đây không phải là lời khuyên đầu tư. Bạn phải tự chịu trách nhiệm với quyết định giải ngân của mình.
+> ⚠️ **Miễn trừ trách nhiệm:** Các phân tích trên là góc nhìn độc lập của *Nghiện Cổ Phiếu*, được đúc kết từ dữ liệu và kinh nghiệm thực chiến nhằm mục đích giáo dục. Đây không phải là lời khuyên đầu tư. Bạn hoàn toàn tự chịu trách nhiệm với quyết định giải ngân của mình.
 
-> 💎 **HÀNH ĐỘNG NGAY: Đừng mua đuổi, hãy mua có kỷ luật**
+> 💎 **HÀNH ĐỘNG NGAY: Đừng để cảm xúc phá nát tài khoản của bạn**
 >
-> Để áp dụng chiến lược Mua Gom (DCA) tự động tại các vùng giá tốt mà không cần dán mắt vào bảng điện, bạn cần một công cụ mạnh mẽ.
+> Công cụ sắc bén quyết định 50% thành bại. Hãy để hệ thống Lệnh Điều Kiện tự động canh giá và chốt chặn rủi ro cho bạn.
 > 
-> 👉 **[Bấm vào đây để mở tài khoản VPS]** và sử dụng tính năng **Lệnh Điều Kiện**. Hệ thống sẽ tự động rải lệnh mua MSN cho bạn ở những vùng giá chiết khấu tốt nhất.
+> 👉 **[Bấm vào đây để mở tài khoản VPS]**(https://openaccount.vps.com.vn/open-account?MKTID=BVNU) (Nhận ưu đãi miễn phí giao dịch 6 tháng đầu và hỗ trợ cơ cấu danh mục 1-1).
 > 
-> 💬 Bạn muốn nhận bảng so sánh chi tiết MSN vs MWG vs VNM để tự tin cơ cấu danh mục? Tham gia ngay **[Nhóm Zalo Khuyến Nghị Ẩn Danh]** của Nghiện Cổ Phiếu, mình sẽ gửi trực tiếp và hỗ trợ tính toán tỷ suất cổ tức cho toàn bộ danh mục hiện tại của bạn.
+> 💬 Bạn đang loay hoay chưa biết phân bổ vốn ra sao? Tham gia ngay **[Nhóm Zalo Nhận Định Kín]**(https://zalo.me/g/d3nn3rgu2rlibfywddlg) của Nghiện Cổ Phiếu. Chúng ta sẽ cùng nhau dọn dẹp danh mục rác và tìm kiếm cơ hội mới mỗi sáng.

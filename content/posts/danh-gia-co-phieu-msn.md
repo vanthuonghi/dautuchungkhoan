@@ -1,12 +1,12 @@
 ---
 title: "Đánh Giá Cổ Phiếu MSN: Từ Bán Mì Gói Đến Đế Chế Tiêu Dùng – Có Đáng Giữ Dài Hạn?"
 description: "Cổ phiếu MSN (Masan) đang bước vào giai đoạn hái quả sau chu kỳ tái cấu trúc. Bóc tách lịch sử, dòng tiền và chiến lược hành động an toàn cho nhà đầu tư ưu tiên sự ổn định."
-date: 2026-03-17T11:00:00+07:00
-draft: false
+date: 2026-03-17T10:00:00+07:00
 categories: ["Phân Tích Cổ Phiếu"]
 tags: ["cổ phiếu MSN", "đánh giá Masan", "WinCommerce", "đầu tư giá trị", "phân tích cơ bản"]
 series: ["Hồ Sơ Doanh Nghiệp"]
 weight: 1
+draft: false
 ---
 
 Bạn đang phân vân có nên nắm giữ cổ phiếu MSN (Masan) cho tầm nhìn 3 - 5 năm tới? 

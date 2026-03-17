@@ -72,13 +72,12 @@ Biết cổ phiếu tốt là một chuyện, mua lúc nào lại là chuyện k
 Hãy áp dụng chiến thuật **DCA (Trung bình giá xuống)**: Chỉ giải ngân khi thị trường hoảng loạn, giá cổ phiếu VNM bị bán tháo chung cùng thị trường nhưng bản chất doanh nghiệp không hề suy yếu. Lúc giá giảm, tỷ suất cổ tức bạn nhận được trên số vốn bỏ ra càng cao.
 
 ---
-> ⚠️ **Miễn trừ trách nhiệm:** Phân tích trên là góc nhìn độc lập của *Nghiện Cổ Phiếu*, nhằm mục đích giáo dục. Đây không phải là lời khuyên đầu tư.
+> ⚠️ **Miễn trừ trách nhiệm:** Các phân tích trên là góc nhìn độc lập của *Nghiện Cổ Phiếu*, được đúc kết từ dữ liệu và kinh nghiệm thực chiến nhằm mục đích giáo dục. Đây không phải là lời khuyên đầu tư. Bạn hoàn toàn tự chịu trách nhiệm với quyết định giải ngân của mình.
 
-> 💎 **HÀNH ĐỘNG NGAY: Đừng canh bảng điện, hãy để máy móc làm việc**
+> 💎 **HÀNH ĐỘNG NGAY: Đừng để cảm xúc phá nát tài khoản của bạn**
 >
-> Chiến lược mua gom (DCA) VNM hiệu quả nhất là chia nhỏ vốn và mua tự động ở các vùng giá hỗ trợ.
+> Công cụ sắc bén quyết định 50% thành bại. Hãy để hệ thống Lệnh Điều Kiện tự động canh giá và chốt chặn rủi ro cho bạn.
 > 
-> 👉 **Bước 1:** **[Bấm vào đây để mở tài khoản VPS]** (Miễn phí 6 tháng giao dịch).
-> 👉 **Bước 2:** Mở app SmartOne, sử dụng tính năng **Lệnh Điều Kiện**. Cài đặt mức giá chiết khấu bạn muốn, hệ thống sẽ tự động "nhặt" VNM cho bạn khi thị trường sập.
+> 👉 **[Bấm vào đây để mở tài khoản VPS]**(https://openaccount.vps.com.vn/open-account?MKTID=BVNU) (Nhận ưu đãi miễn phí giao dịch 6 tháng đầu và hỗ trợ cơ cấu danh mục 1-1).
 > 
-> 💬 Bạn muốn xây dựng một danh mục "Sống bằng cổ tức" nhận 5 - 10 triệu/tháng nhưng chưa biết bắt đầu từ đâu? Tham gia ngay **[Nhóm Zalo Ẩn Danh của Nghiện Cổ Phiếu]**, mình sẽ lên file Excel tính toán lộ trình cụ thể cho mức vốn của bạn.
+> 💬 Bạn đang loay hoay chưa biết phân bổ vốn ra sao? Tham gia ngay **[Nhóm Zalo Nhận Định Kín]**(https://zalo.me/g/d3nn3rgu2rlibfywddlg) của Nghiện Cổ Phiếu. Chúng ta sẽ cùng nhau dọn dẹp danh mục rác và tìm kiếm cơ hội mới mỗi sáng.

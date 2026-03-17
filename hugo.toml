@@ -1,6 +1,6 @@
-baseURL = "https://dautuchungkhoan.pages.dev" # Thay bằng domain thực tế
+baseURL = "https://dautuchungkhoan.pages.dev/" # Đã thêm dấu / ở cuối để tránh lỗi đường dẫn
 languageCode = "vi-VN"
-title = "Đầu Tư Chứng Khoán Thực Chiến | Văn Hỉ"
+title = "Nghiện Cổ Phiếu | Đầu Tư Chứng Khoán Thực Chiến" # Đã sửa lại tên ẩn danh
 theme = "PaperMod"
 
 # Tối ưu SEO & Tốc độ
@@ -9,26 +9,23 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# BẬT TÍNH NĂNG TÌM KIẾM CỦA PAPERMOD (Tạo file dữ liệu JSON)
+# BẬT TÍNH NĂNG TÌM KIẾM CỦA PAPERMOD
 [outputs]
     home = ["HTML", "RSS", "JSON"]
 
-# Cho phép nhúng mã HTML (Cần thiết để chèn Iframe biểu đồ TradingView hoặc Video YouTube)
 [markup.goldmark.renderer]
     unsafe = true
 
 [params]
-    # Giao diện PaperMod
     defaultTheme = "auto"
     ShowReadingTime = true
     ShowShareButtons = true
     ShowPostNavLinks = true
     ShowBreadCrumbs = true
     ShowCodeCopyButtons = true
-    description = "Chia sẻ kiến thức đầu tư chứng khoán, phân tích thị trường và hướng dẫn thực chiến cùng Văn Hỉ"
-    author = "Văn Hỉ"
+    description = "Chia sẻ kiến thức đầu tư chứng khoán, phân tích thị trường và hướng dẫn thực chiến từ Nghiện Cổ Phiếu."
+    author = "Nghiện Cổ Phiếu"
 
-    # Màu chủ đạo & Favicon (Đổi link sang logo của trang chứng khoán)
     [params.assets]
         disableHLJS = true
         favicon = "https://img.domain-cua-em.com/logo-ck.png"
@@ -37,20 +34,15 @@ buildExpired = false
         apple_touch_icon = "https://img.domain-cua-em.com/logo-ck.png"
         safari_pinned_tab = "https://img.domain-cua-em.com/logo-ck.png"
 
-    # SEO Trang chủ
     [params.homeInfoParams]
         Title = "Đầu Tư Sinh Lời - Quản Trị Rủi Ro"
-        Content = "Chào mừng bạn đến với Blog của Văn Hỉ. Nơi cung cấp kiến thức đầu tư thực chiến, phân tích vĩ mô và hỗ trợ mở tài khoản chứng khoán với nhiều đặc quyền."
+        Content = "Chào mừng bạn đến với Blog của Nghiện Cổ Phiếu. Nơi cung cấp kiến thức đầu tư thực chiến, phân tích vĩ mô và hỗ trợ mở tài khoản chứng khoán với nhiều đặc quyền."
 
-    # Mạng xã hội & Phễu thu thập Lead
-    [[params.socialIcons]]
-        name = "youtube"
-        url = "https://youtube.com/@VanHiOfficial"
     [[params.socialIcons]]
         name = "zalo"
-        url = "https://zalo.me/g/link-group-pheu-vps" # Link group Zalo hỗ trợ chứng khoán
+        url = "https://zalo.me/g/link-group-pheu-vps-an-danh"
 
-# MENU ĐIỀU HƯỚNG (Tập trung vào điều hướng mở tài khoản)
+# MENU ĐIỀU HƯỚNG
 [[menu.main]]
     identifier = "home"
     name = "TRANG CHỦ"
@@ -82,7 +74,6 @@ buildExpired = false
     url = "/search/"
     weight = 30
 
-# KHAI BÁO BỘ LỌC PHÂN LOẠI (Taxonomies)
 [taxonomies]
     category = "categories"
     tag = "tags"

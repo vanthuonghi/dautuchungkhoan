@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiến Lược Đầu Tư - Kế Hoạch Xoay Vốn 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CÀI ĐẶT CƠ BẢN */
+        * { box-sizing: border-box; }
+        p { margin: 0 0 15px 0; }
+        
+        body {
+            background-color: #1e293b;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 0;
+            place-items: center;
+        }
+
+        /* KHUNG SLIDE TRÌNH BÀY */
+        .slide-container {
+            align-items: center;
+            background-color: #0f172a;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+            max-width: 95vw; /* Hỗ trợ responsive trên màn hình nhỏ */
+        }
+
+        .slide-container::before {
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+            background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%), 
+                              radial-gradient(circle at bottom left, rgba(251, 191, 36, 0.03), transparent 40%);
+        }
+
+        .slide-container > * { position: relative; z-index: 1; }
+
+        /* TYPOGRAPHY - CHỮ VIẾT */
+        .slide-container h1, .slide-container h2, .slide-container h3 {
+            color: #fbbf24;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-container p, .slide-container li, .slide-container .subtitle {
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container h1 { font-size: 64px; line-height: 1.1; margin-bottom: 20px; }
+        .slide-container .slide-title { font-size: 44px; font-weight: 600; margin-bottom: 40px; text-align: left; width: 100%; }
+        .slide-container h3 { font-size: 32px; font-weight: 500; margin-bottom: 15px; }
+        
+        .slide-container p, .slide-container li, .slide-container .subtitle {
+            font-size: 22px;
+            line-height: 1.6;
+        }
+
+        .slide-container .subtitle { color: #94a3b8; font-weight: 400; margin: 0 auto; font-size: 26px; }
+        .slide-container .content-area {
+            align-items: center; display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%;
+        }
+
+        /* BỐ CỤC */
+        .title-layout { text-align: center; max-width: 900px; }
+        
+        .two-column {
+            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .two-column.tiled { align-items: stretch; }
+        .two-column.tiled > div {
+            background-color: #1e293b;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .two-column.tiled h3 { margin-bottom: 20px; }
+
+        .two-column ul { list-style: none; margin: 0; padding: 0; }
+        .two-column li { margin-bottom: 20px; position: relative; padding-left: 25px; }
+        .two-column li::before { content: '•'; color: #3b82f6; position: absolute; left: 0; font-size: 30px; line-height: 22px; }
+
+        .image-wrapper {
+            border-radius: 16px;
+            height: 400px;
+            max-width: 100%;
+            overflow: hidden;
+            width: 100%;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .image-wrapper img { height: 100%; width: 100%; object-fit: cover; background-color: #1e293b; }
+
+        .tiled-content { align-items: stretch; display: flex; gap: 40px; justify-content: center; width: 100%; }
+        .tile {
+            align-items: center;
+            background-color: #1e293b;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .tile .icon { color: #fbbf24; font-size: 56px; margin-bottom: 25px; }
+
+        /* DANH SÁCH BULLET */
+        .bullet-list { max-width: 1000px; width: 100%; }
+        .bullet-list ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 30px 50px; }
+        .bullet-list li {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 25px 25px 25px 70px;
+            position: relative;
+            border: 1px solid #334155;
+        }
+        .bullet-list i { color: #fbbf24; font-size: 32px; left: 20px; position: absolute; top: 25px; }
+        .bullet-list li strong { color: #fbbf24; font-weight: 600; font-size: 24px; display: block; margin-bottom: 8px; }
+
+        /* BIỂU ĐỒ TRÒN */
+        .doughnut-chart-container { align-items: center; display: flex; gap: 80px; justify-content: center; width: 100%; }
+        .doughnut-chart { border-radius: 50%; height: 400px; width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .legend { display: flex; flex-direction: column; gap: 25px; list-style: none; margin: 0; padding: 0; }
+        .legend li { align-items: center; display: flex; font-size: 24px; color: #f8fafc;}
+        .legend .color-box { border-radius: 6px; height: 28px; margin-right: 20px; width: 28px; }
+        .chart-summary { font-style: italic; margin-top: 40px; max-width: 900px; text-align: center; color: #94a3b8 !important; }
+
+        /* ẢNH TRÀN VIỀN */
+        .slide-container.bleed-image-layout { align-items: start; display: grid; gap: 50px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
+        .slide-container.bleed-image-layout > .content-container { padding: 60px 0 60px 60px; display: flex; flex-direction: column; height: 100%; }
+        .slide-container.bleed-image-layout > .image-container { height: 100%; overflow: hidden; width: 100%; }
+        .slide-container.bleed-image-layout img.bleed-image-side { border-radius: 0 12px 12px 0; display: block; height: 720px; object-fit: cover; width: 100%; }
+        .slide-container.bleed-image-layout .bleed-text-side { display: flex; flex-direction: column; justify-content: center; }
+
+        /* CALL TO ACTION */
+        .qa-layout { margin: 0 auto; text-align: center; width: 100%; align-self: center; }
+        .qa-layout h2 { font-size: 70px; margin-bottom: 20px; }
+        .qa-layout p { font-size: 26px; color: #f8fafc; }
+        .qa-layout .contact-info {
+            color: #fbbf24;
+            font-size: 24px;
+            margin-top: 50px;
+            font-weight: 500;
+            background-color: #1e293b;
+            padding: 20px 40px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 1px solid #334155;
+        }
+
+        .text-highlight { color: #3b82f6; font-weight: 600; }
+        .text-alert { color: #ef4444; font-weight: 600; }
+        
+        /* RESPONSIVE SCALING CHO MÀN HÌNH NHỎ (MOBILE/TABLET) */
+        @media (max-width: 1300px) {
+            .slide-container { transform: scale(0.8); margin: -70px 0; }
+        }
+        @media (max-width: 1024px) {
+            .slide-container { transform: scale(0.6); margin: -140px 0; }
+        }
+        @media (max-width: 768px) {
+            .slide-container { transform: scale(0.35); margin: -230px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Trang chủ -->
+    <div class="slide-container" id="slide1">
+        <div class="title-layout">
+            <h1>Chiến Lược Đầu Tư<br>Theo Chu Kỳ Kinh Tế</h1>
+            <p class="subtitle">Bản đồ định hướng dòng tiền & Kế hoạch xoay vốn hiệu quả cho năm 2025-2026.</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: 4 Giai đoạn -->
+    <div class="slide-container" id="slide2">
+        <h2 class="slide-title">4 Giai Đoạn Của Chu Kỳ Vĩ Mô</h2>
+        <div class="content-area">
+            <div class="bullet-list">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+                        <strong>1. Suy Thoái (Recession)</strong>
+                        Kinh tế chậm lại, thất nghiệp gia tăng. Lãi suất duy trì cao rồi bắt đầu giảm.<br>
+                        <span class="text-highlight">👉 Tài sản tốt:</span> Gửi tiết kiệm, Trái phiếu.
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                        <strong>2. Phục Hồi (Recovery)</strong>
+                        Lãi suất giảm, doanh nghiệp bắt đầu phục hồi lợi nhuận.<br>
+                        <span class="text-highlight">👉 Tài sản tốt:</span> Cổ phiếu (Đặc biệt Ngân hàng, Chứng khoán).
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-rocket"></i>
+                        <strong>3. Tăng Trưởng (Expansion)</strong>
+                        Kinh tế bùng nổ, tiền rẻ, dòng tiền dồi dào trên thị trường.<br>
+                        <span class="text-highlight">👉 Tài sản tốt:</span> Cổ phiếu đạt mức tăng mạnh nhất.
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-temperature-arrow-up"></i>
+                        <strong>4. Quá Nóng (Peak)</strong>
+                        Lạm phát tăng cao, Ngân hàng Nhà nước tăng lãi suất trở lại.<br>
+                        <span class="text-highlight">👉 Tài sản tốt:</span> Vàng, Nắm giữ Tiền mặt.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Vị thế Việt Nam -->
+    <div class="slide-container" id="slide3">
+        <h2 class="slide-title">Việt Nam Hiện Tại Đang Ở Đâu?</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p>Nhìn vào thực tế vĩ mô năm 2025 – 2026, chúng ta có các tín hiệu rõ ràng:</p>
+                    <ul>
+                        <li><strong>Lãi suất:</strong> Đang duy trì ở mức thấp sau một chu kỳ giảm dài.</li>
+                        <li><strong>Kinh tế chung:</strong> Đang trong đà hồi phục ổn định.</li>
+                        <li><strong>Bất động sản:</strong> Còn yếu, dòng tiền chưa thực sự đổ bộ mạnh mẽ.</li>
+                        <li><strong>Xuất khẩu:</strong> Cải thiện dần qua từng tháng.</li>
+                    </ul>
+                    <p style="margin-top: 30px; font-size: 24px;">👉 <strong class="text-highlight">Kết luận:</strong> Việt Nam đang ở giai đoạn <strong>Cuối Phục Hồi &rarr; Đầu Tăng Trưởng</strong>.</p>
+                </div>
+                <div>
+                    <div class="image-wrapper">
+                        <!-- Ảnh minh họa chứng khoán từ Unsplash -->
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80" alt="Biểu đồ tăng trưởng chứng khoán chuyên nghiệp" onerror="this.src='https://placehold.co/800x400/1e293b/fbbf24?text=Bieu+Do+Chung+Khoan'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Kênh tài sản -->
+    <div class="slide-container" id="slide4">
+        <h2 class="slide-title">Định Vị Từng Kênh Tài Sản</h2>
+        <div class="content-area">
+            <div class="two-column tiled">
+                <div>
+                    <h3><i class="fa-solid fa-star" style="margin-right: 10px;"></i> Ưu Tiên Hàng Đầu</h3>
+                    <p><strong>🟢 Cổ phiếu:</strong> Đang là kênh được ưu tiên nhất. Lãi suất thấp thúc đẩy dòng tiền vào thị trường. Doanh nghiệp bắt đầu hồi phục lợi nhuận.</p>
+                    <p><em>Nhóm ngành mạnh:</em> Ngân hàng, Chứng khoán, Bán lẻ (hồi phục theo sau).</p>
+                </div>
+                <div>
+                    <h3><i class="fa-solid fa-shield-halved" style="margin-right: 10px;"></i> Thận Trọng & Phòng Thủ</h3>
+                    <p><strong>🟡 Gửi tiết kiệm:</strong> Lãi suất thấp khiến kênh này kém hấp dẫn, chỉ đóng vai trò giữ tiền an toàn.</p>
+                    <p><strong>🟠 Vàng & Trái phiếu:</strong> Trái phiếu chưa đủ sức hút để All-in. Vàng đang ở pha cuối chu kỳ tăng, rất rủi ro nếu kinh tế vĩ mô ổn định trở lại.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Góc nhìn thực tế -->
+    <div class="slide-container bleed-image-layout" id="slide5">
+        <div class="content-container">
+            <h2 class="slide-title">Góc Nhìn Thực Tế</h2>
+            <div class="content-area">
+                <div class="bleed-text-side">
+                    <h3>Không Phải Lúc Để Tích Vàng</h3>
+                    <p>Hiện tại <span class="text-alert">KHÔNG PHẢI</span> là giai đoạn để tích vàng mạnh hay ưu tiên gửi tiết kiệm. Việc cố gắng dự đoán giá vàng ngắn hạn sẽ mang lại rủi ro lớn.</p>
+                    <p>Thực tế, đây chính là giai đoạn vàng để <span class="text-highlight">XÂY DỰNG VỊ THẾ CỔ PHIẾU</span>. Nắm bắt đúng chu kỳ quan trọng hơn nỗ lực dự đoán thị trường hàng ngày.</p>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img class="bleed-image-side" src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" alt="Bàn làm việc phân tích chứng khoán chuyên nghiệp" onerror="this.src='https://placehold.co/600x720/1e293b/fbbf24?text=Phan+Tich+Dau+Tu'">
+        </div>
+    </div>
+
+    <!-- Slide 6: Biểu đồ phân bổ -->
+    <div class="slide-container" id="slide6">
+        <h2 class="slide-title">Phân Bổ Vốn Khuyến Nghị (Có Gia Đình)</h2>
+        <div class="content-area">
+            <div class="chart-container">
+                <div class="doughnut-chart-container">
+                    <div class="doughnut-chart" style="background: conic-gradient(#3b82f6 0% 55%, #10b981 55% 80%, #fbbf24 80% 95%, #64748b 95% 100%);"></div>
+                    <ul class="legend">
+                        <li><div class="color-box" style="background-color: #3b82f6;"></div>Cổ phiếu (55%) - Tích lũy DCA</li>
+                        <li><div class="color-box" style="background-color: #10b981;"></div>Tiền mặt (25%) - Dự phòng rủi ro</li>
+                        <li><div class="color-box" style="background-color: #fbbf24;"></div>Vàng (15%) - Phân bổ phòng thủ</li>
+                        <li><div class="color-box" style="background-color: #64748b;"></div>Trái phiếu (5%) - Đa dạng hóa an toàn</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="chart-summary">Nguyên tắc cốt lõi: Không bao giờ "All-in". Luôn duy trì tỷ trọng tiền mặt hợp lý để chớp cơ hội khi thị trường điều chỉnh hoặc phòng ngừa rủi ro.</p>
+        </div>
+    </div>
+
+    <!-- Slide 7: Kế hoạch 1 năm tới -->
+    <div class="slide-container" id="slide7">
+        <h2 class="slide-title">Kế Hoạch Hành Động 1 Năm Tới</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-chart-line-down" style="transform: scaleY(-1);"></i></div>
+                    <h3>Thị Trường Điều Chỉnh</h3>
+                    <p>Được xem là cơ hội tốt nhất. Tiến hành <span class="text-highlight">MUA THÊM</span> cổ phiếu theo chiến lược tích lũy đều đặn (DCA). Tập trung các doanh nghiệp đầu ngành.</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                    <h3>Thị Trường Tăng Nóng</h3>
+                    <p>Không nên để cảm xúc chi phối. Chủ động <span class="text-highlight">GIẢM TỶ TRỌNG</span>, chốt lời từng phần để bảo vệ thành quả và thu hồi tiền mặt về quỹ dự phòng.</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-coins"></i></div>
+                    <h3>Vàng Tiếp Tục Tăng</h3>
+                    <p>Giữ tâm lý vững vàng, tuyệt đối <span class="text-alert">KHÔNG FOMO</span> (mua đuổi). Chỉ duy trì tỷ trọng nhỏ đã định sẵn cho mục đích phòng thủ danh mục.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Kết luận & CTA -->
+    <div class="slide-container" id="slide8">
+        <div class="qa-layout">
+            <h2>Bắt Đầu Xây Dựng Danh Mục</h2>
+            <p>Không cần phải quá giỏi dự đoán, chỉ cần đi đúng chu kỳ và kỷ luật.</p>
+            <div class="contact-info">
+                Mở tài khoản VPS (Top 1 VN) | Mã hỗ trợ: <strong style="color: #fff;">BVNU</strong>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

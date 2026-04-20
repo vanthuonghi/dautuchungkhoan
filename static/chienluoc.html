@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiến Lược Đầu Tư Chứng Khoán - Đặt Nền Móng Chuẩn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0b3c5d; /* Xanh Navy */
+            --secondary-color: #328cc1;
+            --accent-color: #d9b310; /* Vàng kim */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+            margin-top: 20px;
+        }
+
+        header h1 {
+            margin: 0 0 15px 0;
+            font-size: 28px;
+            color: var(--accent-color);
+        }
+
+        header p {
+            font-size: 16px;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .content-box {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .intro {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .card-danger {
+            background-color: #fff8f8;
+            border-color: #ffd6d6;
+        }
+
+        .card-success {
+            background-color: #f4fff5;
+            border-color: #d3f0d7;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            left: 5px;
+            top: -2px;
+        }
+
+        .card-danger ul li::before { content: "❌"; font-size: 14px; top: 2px;}
+        .card-success ul li::before { content: "✅"; font-size: 14px; top: 2px;}
+
+        .highlight-box {
+            background-color: #eef6fc;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .stock-type {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stock-type h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+        }
+
+        .criteria-list {
+            counter-reset: my-sec-counter;
+        }
+
+        .criteria-item {
+            margin-bottom: 20px;
+        }
+
+        .criteria-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--text-dark);
+        }
+
+        .criteria-item h4::before {
+            counter-increment: my-sec-counter;
+            content: counter(my-sec-counter) ". ";
+            color: var(--secondary-color);
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .filter-box {
+            background: #2b2d42;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .filter-box h2 {
+            color: var(--accent-color);
+            border-bottom: 1px solid #4a4e69;
+        }
+
+        .filter-box ul li::before {
+            content: "❓";
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .conclusion h2 {
+            color: var(--accent-color);
+            border: none;
+            justify-content: center;
+            margin-top: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Chiến Lược Chọn Cổ Phiếu Dành Cho Người Mới</h1>
+        <p>Chọn đúng doanh nghiệp + Đúng cách mua = Lợi nhuận bền vững</p>
+    </header>
+
+    <div class="content-box">
+        <div class="intro">
+            <p>Nói thật với bạn: Đúng là giai đoạn này rất phù hợp để “đặt nền móng”, nhưng nếu chọn sai cổ phiếu thì vẫn “đứng im hoặc lỗ” như thường.</p>
+            <p>Vấn đề không phải vào thị trường sớm hay muộn 👉 <strong>mà là chọn đúng doanh nghiệp và đúng cách mua.</strong></p>
+            <p>Em Hỉ sẽ đi thẳng vào thứ bạn cần: Hướng đi cho người mới và bộ tiêu chí chọn cổ phiếu dùng được ngay.</p>
+        </div>
+
+        <h2>🟡 1. Hướng đi đúng cho người mới (Rất quan trọng)</h2>
+        <div class="grid-2">
+            <div class="card card-danger">
+                <h3 style="color: var(--danger);">❌ Tuyệt đối đừng làm:</h3>
+                <ul>
+                    <li>Lướt sóng T+</li>
+                    <li>Nghe room phím hàng, hóng tin đồn</li>
+                    <li>Tham mua cổ phiếu “giá rẻ” (Penny)</li>
+                </ul>
+            </div>
+            <div class="card card-success">
+                <h3 style="color: var(--success);">✅ Chắc chắn nên làm:</h3>
+                <ul>
+                    <li><strong>Đi theo chiến lược:</strong> Mua doanh nghiệp tốt</li>
+                    <li>Tích lũy dần đặn (DCA)</li>
+                    <li>Nắm giữ mục tiêu <strong>6 – 18 tháng</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🟡 2. Ba (03) kiểu cổ phiếu phù hợp giai đoạn này</h2>
+        
+        <div class="stock-type">
+            <h4>🟢 1. Cổ phiếu đầu ngành (Ưu tiên số 1)</h4>
+            <p><strong>Đặc điểm:</strong> Sống sót qua mọi chu kỳ, hồi phục nhanh nhất khi kinh tế đi lên.</p>
+            <p><strong>Ví dụ:</strong> Vietcombank (Bank top), FPT (Công nghệ), PNJ (Bán lẻ)...</p>
+        </div>
+
+        <div class="stock-type">
+            <h4>🟢 2. Cổ phiếu hưởng lợi chu kỳ</h4>
+            <p><strong>Đặc điểm:</strong> Sẽ tăng cực kỳ mạnh mẽ khi nền kinh tế vĩ mô bắt đầu hồi phục.</p>
+            <p><strong>Nhóm ngành:</strong> <span class="tag">Ngân hàng</span> <span class="tag">Chứng khoán</span> <span class="tag">Xây dựng/Đầu tư công</span></p>
+        </div>
+
+        <div class="stock-type">
+            <h4>🟢 3. Cổ phiếu tăng trưởng dài hạn</h4>
+            <p><strong>Đặc điểm:</strong> Công nghệ cốt lõi hoặc có thế mạnh xuất khẩu, lợi nhuận tăng trưởng đều qua các năm.</p>
+            <p><strong>Ví dụ điển hình:</strong> FPT Corporation.</p>
+        </div>
+
+        <h2>🟡 3. Bộ 5 tiêu chí chọn cổ phiếu (Dễ áp dụng nhất)</h2>
+        <div class="criteria-list">
+            <div class="criteria-item">
+                <h4>Doanh nghiệp phải có lãi đều</h4>
+                <p>Lợi nhuận phải duy trì đà tăng trưởng trong 3–5 năm qua và <strong>không bị lỗ bất thường</strong>. Tránh xa các công ty "lúc lãi lúc lỗ".</p>
+            </div>
+            <div class="criteria-item">
+                <h4>Tỷ lệ nợ không quá cao</h4>
+                <p>Tỷ lệ Nợ/Vốn chủ sở hữu không được quá lớn. Lãi suất mà rục rịch tăng thì các doanh nghiệp vay nợ nhiều rất dễ "toang".</p>
+            </div>
+            <div class="criteria-item">
+                <h4>Ban lãnh đạo uy tín</h4>
+                <p>Tuyệt đối không dính scandal, thao túng giá. Phải có lịch sử làm ăn rõ ràng, minh bạch với cổ đông.</p>
+            </div>
+            <div class="criteria-item">
+                <h4>Ngành đang có “câu chuyện”</h4>
+                <p>Tiền luôn chảy về nơi có sự kỳ vọng. <em>Ví dụ hiện tại:</em> Bank hưởng lợi lãi suất thấp; Chứng khoán nhờ dòng tiền quay lại; Bán lẻ nhờ phục hồi tiêu dùng.</p>
+            </div>
+            <div class="criteria-item">
+                <h4>Giá chưa tăng quá nóng</h4>
+                <p><strong>Rất nhiều người sai lầm ở đây:</strong> Thấy cổ phiếu tăng mạnh trần vài phiên mới đu mua. Nguyên tắc của em Hỉ là: <em>Mua khi chưa ai quan tâm nhiều.</em></p>
+            </div>
+        </div>
+
+        <div class="filter-box">
+            <h2>🟡 4. Bộ lọc nhanh (Cực kỳ thực dụng)</h2>
+            <p>Nếu bạn không quá rành về đọc báo cáo tài chính, trước khi mua hãy tự trả lời 5 câu hỏi sau:</p>
+            <ul style="font-size: 16px;">
+                <li>Công ty này có phải Top của ngành không?</li>
+                <li>3 năm gần đây lợi nhuận có tăng trưởng không?</li>
+                <li>Có đang hưởng lợi từ việc kinh tế hồi phục không?</li>
+                <li>Có bị dính tin xấu lớn, vi phạm pháp luật không?</li>
+                <li>Giá cổ phiếu có đang bị thổi lên quá cao không?</li>
+            </ul>
+            <p style="color: var(--accent-color); font-weight: bold; margin-top: 15px; font-size: 18px;">👉 Nếu 4/5 câu trả lời là “OK” → Bạn hoàn toàn có thể tự tin nghiên cứu mua.</p>
+        </div>
+
+        <h2>🟡 5. Cách mua đúng (Quan trọng hơn cả chọn mã)</h2>
+        <div class="highlight-box">
+            <strong>❗ Nguyên tắc sống còn: Đừng bao giờ All-in 1 lần!</strong>
+            <p>✅ <strong>Chia tiền ra:</strong> Áp dụng chiến lược mua trung bình giá (DCA) từ 3–5 lần. <br>
+            <em>Ví dụ: Có 100 triệu → Giải ngân mỗi lần 20–30 triệu.</em></p>
+            <p>✅ <strong>Thời điểm mua:</strong> Khi thị trường chung điều chỉnh đỏ lửa, hoặc cổ phiếu tốt giảm về vùng giá hỗ trợ.</p>
+        </div>
+
+        <h2>🟡 6. Tâm lý chiến (Sự thật mất lòng)</h2>
+        <div class="grid-2">
+            <div class="card">
+                <p><strong>Bỏ ngay tư duy:</strong></p>
+                <ul>
+                    <li>Không cần thắng nhanh</li>
+                    <li>Không cần cố đoán để bắt đúng đáy</li>
+                </ul>
+            </div>
+            <div class="card" style="background: var(--bg-light); border-left: 4px solid var(--accent-color);">
+                <p><strong>Bạn chỉ cần:</strong></p>
+                <p style="font-size: 20px; font-weight: bold; color: var(--primary-color);">👉 Mua Đúng + Giữ Đủ Lâu</p>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <h2>🟡 Kết luận kiểu “người có gia đình”</h2>
+            <p style="font-size: 18px;">Đầu tư là để tiền làm việc cho mình, không phải để mất ăn mất ngủ.</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; margin-top: 20px; text-align: left;">
+                <p><strong>Nếu là em Hỉ ở thời điểm này, em sẽ:</strong></p>
+                <ul style="color: white;">
+                    <li>Chọn lọc ra 3–5 cổ phiếu thực sự tốt.</li>
+                    <li>Mua gom dần đều trong vòng 3–6 tháng.</li>
+                    <li>Bình tâm nắm giữ từ 1–2 năm.</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Và chắc chắn KHÔNG:</strong> Đánh nhanh thắng nhanh, không All-in tất tay, không đòn bẩy quá đà.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
